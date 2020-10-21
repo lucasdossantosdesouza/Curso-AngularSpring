@@ -7,4 +7,10 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'first-angular-cli';
+  tasks = [];
+  task = "";
+
+  public add(): void{
+    this.tasks.push(this.task);
+  }
 }

@@ -528,7 +528,10 @@
 <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
 <!-- * * * * * * * * * * End of Placeholder * * * * * * * * * * * -->
 <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
-
-
-
+<!-- ng for -->
+<input type="text" [(ngModel)]="task">
+<button type="button" (click)="add()"> Add to List</button>
+<li *ngFor="let item of tasks">
+{{ item }}
+</li>
 <router-outlet></router-outlet>
