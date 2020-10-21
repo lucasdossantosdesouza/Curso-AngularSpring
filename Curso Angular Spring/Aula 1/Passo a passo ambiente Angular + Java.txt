@@ -1,0 +1,16 @@
+Ambiente para desenvolvimento Angular + Java
+
+Baixe o NODE.JS
+https://nodejs.org/en/download/
+instale e verifique a versão pelo comando no cmd node -v e do nmp pelo comando npm -v ou - version
+instale o angular cli pelo cmd pelo comando npm install -g @angular/cli
+Baixe e intale o VSCode
+no vs code instale as seguintes extenssões
+vscode icons(file->preferences-> vscode icons) para ativar a extenssão
+Auto import
+angular snippets
+Instale o intelij e crie um projeto
+
+para compilar utilize ctrl+shift+b
+
+arquivo map serve para identificar erros pois o script é gerado num unico arquivo o map facilita a localização de erros e falas de codificação.
