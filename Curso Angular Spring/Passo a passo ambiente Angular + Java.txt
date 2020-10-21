@@ -14,3 +14,9 @@ Instale o intelij e crie um projeto
 para compilar utilize ctrl+shift+b
 
 arquivo map serve para identificar erros pois o script é gerado num unico arquivo o map facilita a localização de erros e falas de codificação.
+
+ng new nomeprojeto
+ng serve para subir o projeto
+ng serve --open=true para subir projeto e abrir navegador
+ng g c nomecomponente para criar um novo componente
+

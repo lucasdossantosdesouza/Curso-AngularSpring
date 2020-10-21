@@ -1,0 +1,16 @@
+<p>task-list works!</p>
+
+
+<input type="text" [(ngModel)]="task">
+<button type="button" (click)="add()"> Add to List</button>
+<li *ngFor="let item of tasks" [innerHtml]="item">
+
+</li>
+
+<div [hidden]="admin">
+    Common User
+</div>
+
+<div [hidden]="!admin">
+   Administrador
+</div> 

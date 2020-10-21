@@ -528,10 +528,15 @@
 <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
 <!-- * * * * * * * * * * End of Placeholder * * * * * * * * * * * -->
 <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
-<!-- ng for -->
-<input type="text" [(ngModel)]="task">
-<button type="button" (click)="add()"> Add to List</button>
-<li *ngFor="let item of tasks">
-{{ item }}
-</li>
+<!-- ng for , interpolação e propertibiding-->
+
+<app-task-list></app-task-list>
+<div>{{ user.name }}</div>
+<!-- pipes-->
+<div>{{ user | json }}</div>
+<div>{{ upperText | uppercase }}</div>
+<div>{{ lowerText | lowercase }}</div>
+<div>{{ percentValue | percent }}</div>
+<div>{{ data | date: 'dd/MM/yyyy' }}</div>
+<div>{{ money | currency: 'R$' }}</div>
 <router-outlet></router-outlet>
