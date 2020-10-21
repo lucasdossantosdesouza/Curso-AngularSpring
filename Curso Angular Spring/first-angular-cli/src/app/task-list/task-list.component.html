@@ -14,3 +14,10 @@
 <div [hidden]="!admin">
    Administrador
 </div> 
+<!--diretivas-->
+<div *ngIf="!admin">
+    Administrador diretiva
+ </div> 
+ <div *ngIf="admin">
+    Common User diretiva
+ </div> 

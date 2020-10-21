@@ -20,3 +20,5 @@ ng serve para subir o projeto
 ng serve --open=true para subir projeto e abrir navegador
 ng g c nomecomponente para criar um novo componente
 
+limpar cache npm cache verify
+

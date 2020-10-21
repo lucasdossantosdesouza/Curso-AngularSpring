@@ -8,13 +8,17 @@ import { User } from './user';
 })
 export class AppComponent {
   title = 'first-angular-cli';
+
   upperText = 'Display uppercase text';
   lowerText = 'Display lowercase text';
   percentValue: number = 0.5;
   data: Date = new Date();
   money: number = 580;
+  profile: number = 2;
+
   user: User = {
     name:'LUCAS',
     age:30
   };
+  
 }

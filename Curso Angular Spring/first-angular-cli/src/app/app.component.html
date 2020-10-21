@@ -539,4 +539,11 @@
 <div>{{ percentValue | percent }}</div>
 <div>{{ data | date: 'dd/MM/yyyy' }}</div>
 <div>{{ money | currency: 'R$' }}</div>
+
+<!--DIRETIVA NGSWITCH-->
+<div [ngSwitch]="profile">
+  <div *ngSwitchCase="2">USER NÚMERO 1</div>
+  <div *ngSwitchCase="1">USER NÚMERO 2</div>
+  <div *ngSwitchDefault>NÃO LOGADO</div>
+</div> 
 <router-outlet></router-outlet>
