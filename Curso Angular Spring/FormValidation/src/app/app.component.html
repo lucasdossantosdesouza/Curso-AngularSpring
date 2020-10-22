@@ -1,0 +1,18 @@
+<form #userForm="ngForm" >
+<div class="form-group">
+  <label for="name">Name </label>
+  <input type="text" id="name" name="name" [(ngModel)]="name" #nameVerify="ngModel"
+  pattern="[a-zA-Z ]*" minlength="3" maxlength="250"
+  required class="form-control">
+  <span *ngIf="nameVerify.invalid && emailVerify.touched">Name is invalid</span>
+</div>
+<br>
+<div class="form-group">
+  <label for="email">Email </label>
+  <input type="text" id="email" name="email" ngModel email  #emailVerify="ngModel" class="form-control" >
+  <span *ngIf="emailVerify.invalid && emailVerify.touched">Email is invalid</span>
+</div>
+<br>
+<button type="submit" [disabled]="!userForm.valid">Submit </button>
+</form>
+<router-outlet></router-outlet>

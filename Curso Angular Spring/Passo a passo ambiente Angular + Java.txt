@@ -22,3 +22,7 @@ ng g c nomecomponente para criar um novo componente
 
 limpar cache npm cache verify
 
+validator email
+<input type="email" name="email" ngModel email>
+<input type="email" name="email" ngModel email="true">
+<input type="email" name="email" ngModel [email]="true">
