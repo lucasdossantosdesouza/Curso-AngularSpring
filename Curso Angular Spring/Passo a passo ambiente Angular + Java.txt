@@ -26,3 +26,5 @@ validator email
 <input type="email" name="email" ngModel email>
 <input type="email" name="email" ngModel email="true">
 <input type="email" name="email" ngModel [email]="true">
+
+Tampleat https://github.com/ColorlibHQ/AdminLTE/releases/tag/v3.0.5
