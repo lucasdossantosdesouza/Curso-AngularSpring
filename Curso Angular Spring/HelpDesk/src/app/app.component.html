@@ -1,7 +1,6 @@
-<app-header [title]="title"></app-header >
-<app-menu ></app-menu >
+<app-header [title]="title" [hidden]="!showTemplate"></app-header >
+<app-menu [hidden]="!showTemplate"></app-menu >
 <main role="main" class="container">
-    <h1 class="mt-5">Conteudo</h1>
+    <div class="mt-5"><router-outlet></router-outlet></div>
  </main>
 <app-footer ></app-footer>
-<router-outlet></router-outlet>

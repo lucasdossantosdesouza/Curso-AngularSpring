@@ -1,4 +1,5 @@
-import { routes } from './app.routers';
+import { SharedService } from './services/shared.service';
+import { TicketService } from './services/ticket.service';
 import { HttpClientModule } from '@angular/common/http';
 import { UsuarioService } from './services/usuario.service';
 import { HeaderComponent } from './component/header/header.component';
@@ -23,10 +24,9 @@ import { LoginComponent } from './component/security/login/login.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule,
-    routes  
+    HttpClientModule      
   ],
-  providers: [UsuarioService],
+  providers: [UsuarioService,TicketService,SharedService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
