@@ -29,12 +29,12 @@ export class UsuarioService {
       return this.http.get(`${HELP_DESK_API}/api/usuario/${page}/${count}`);
    }
 
-   findById(id: number){
+   findById(id: string){
     return this.http.get(`${HELP_DESK_API}/api/usuario/${id}`);
    }
 
-   delete(id: number){
+   delete(id: string){
     return this.http.delete(`${HELP_DESK_API}/api/usuario/${id}`);
    }
-   
+
 }
