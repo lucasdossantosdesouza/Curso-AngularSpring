@@ -9,7 +9,8 @@
 <br>
 <div class="form-group">
   <label for="email">Email </label>
-  <input type="text" id="email" name="email" ngModel email  #emailVerify="ngModel" class="form-control" >
+  <input type="text" id="email" name="email" ngModel email  #emailVerify="ngModel"
+   class="form-control" >
   <span *ngIf="emailVerify.invalid && emailVerify.touched">Email is invalid</span>
 </div>
 <br>

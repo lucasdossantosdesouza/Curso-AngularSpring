@@ -5,12 +5,28 @@ import { EventEmitter, Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class SharedService {
+
   public static instance: SharedService = null;
   usuario: Usuario;
-  password: string;
-  showTemplate= new EventEmitter<boolean>();
+  token: string;
+  showTemplate = new EventEmitter<boolean>();
 
   constructor() {
-    SharedService.instance = SharedService.instance || this;
-   }
+    return SharedService.instance = SharedService.instance || this;    
+  }
+
+  public static getInstance(){
+    if(this.instance == null){
+      this.instance = new SharedService();
+    }
+    return this.instance;
+  }
+
+  isLoggedIn():boolean{
+    console.log(SharedService.getInstance());
+    if(this.usuario == null){
+        return false;
+    }
+    return this.usuario.email != '';    
+  }
 }

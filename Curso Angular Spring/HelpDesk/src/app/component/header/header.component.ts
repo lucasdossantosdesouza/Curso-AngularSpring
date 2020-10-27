@@ -1,3 +1,5 @@
+import { Usuario } from './../../model/usuario';
+import { SharedService } from 'src/app/services/shared.service';
 import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
@@ -6,8 +8,14 @@ import { Component, Input, OnInit } from '@angular/core';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit {
-  @Input() title;
-  constructor() { }
+  @Input() title: string;
+  shared: SharedService;  
+  public usuario = new Usuario('','','','');  
+
+  constructor() {
+    this.shared = SharedService.getInstance();
+    this.usuario = this.shared.usuario;      
+   }
  
   ngOnInit(): void {
   }

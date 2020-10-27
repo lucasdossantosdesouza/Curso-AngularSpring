@@ -1,1 +1,29 @@
-<h4>login works!</h4>
+<h3 class="mt-5">HelpDesk | Login</h3>
+
+<form #userForm="ngForm" (ngSubmit)="loginIn()">
+    <div [ngClass]="getFromGrupClass(email.invalid, email.dirty)">
+      <label for="exampleInputEmail1">Endereço de email</label>
+      <input type="email" [(ngModel)]="usuario.email" class="form-control" name="email"
+      id="email" aria-describedby="emailHelp" placeholder="Seu email"
+       #email="ngModel" email required>
+        <span class="help-block" *ngIf="email.invalid && email.dirty"> 
+            Email é inválido</span>
+      <small id="emailHelp" class="form-text text-muted">Nunca vamos compartilhar seu email, com ninguém.</small>
+    </div>
+    <div [ngClass]="getFromGrupClass(password.invalid, password.dirty)">
+      <label for="exampleInputPassword1">Senha</label>
+      <input type="password" [(ngModel)]="usuario.password"  name="password"
+      class="form-control" id="password" placeholder="Senha"
+      #password="ngModel"  password required>
+      <span class="help-block" *ngIf="password.invalid && password.dirty"> Senha é inválida</span>
+    </div>
+   
+    <div >
+        <button type="submit" class="btn btn-primary" 
+        [disabled]="!userForm.valid" >Enviar</button> 
+        <span class="espaco"></span>      
+        <button type="submit" class="btn btn-info pull-right " 
+        (click)="cancelaLogin()" style="margin-right:30em;">Limpar</button>
+    </div>
+    
+  </form>
