@@ -15,6 +15,7 @@ import { FooterComponent } from './component/footer/footer.component';
 import { HomeComponent } from './component/home/home.component';
 import { LoginComponent } from './component/security/login/login.component';
 import { AuthGuard } from './component/security/auth.guard';
+import { UserNewComponent } from './component/user-new/user-new.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { AuthGuard } from './component/security/auth.guard';
     MenuComponent,
     FooterComponent,
     HomeComponent,
-    LoginComponent    
+    LoginComponent,
+    UserNewComponent    
   ],
   imports: [
     BrowserModule,

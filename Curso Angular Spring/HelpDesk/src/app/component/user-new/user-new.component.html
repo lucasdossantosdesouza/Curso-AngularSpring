@@ -1,0 +1,42 @@
+<h3 class="mt-5">HelpDesk | Novo Usuario</h3>
+
+<form #usernewForm="ngForm" (ngSubmit)="registrar()">
+    <div>
+        <strong [ngClass]="classCss" role="alert" *ngIf="message">
+            {{ message.text }}
+        </strong>
+    </div>
+    <div class="form-group">
+      <label for="exampleInputEmail1">Endereço de email</label>
+      <input type="email" [(ngModel)]="usuario.email" class="form-control" name="email"
+      id="email" aria-describedby="emailHelp" placeholder="Seu email"
+       #email="ngModel" email required>
+        <span class="help-block" *ngIf="email.invalid && email.dirty"> 
+            Email é inválido</span>
+    </div>
+    <div class="form-group">
+      <label for="exampleInputPassword1">Senha</label>
+      <input type="password" [(ngModel)]="usuario.password"  name="password"
+      class="form-control" id="password" placeholder="Senha"
+      #password="ngModel"  password required>
+      <span class="help-block" *ngIf="password.invalid && password.dirty"> Senha é Obrigatória</span>
+    </div>
+    <div class="form-group">
+        <label for="exampleProfile">Profile</label>
+        <select  [(ngModel)]="usuario.profile"  name="profile"
+        class="form-control select2" id="profile" style="width: 100%;"
+        #profile="ngModel"  profile required>
+            <option >ROLE_ADMIN</option>
+            <option >ROLE_CUSTOMER</option>
+            <option >ROLE_TECHNICIAN</option>
+        </select>
+        <span class="help-block" *ngIf="profile.invalid && profile.dirty"> Profile é Obrigatorio</span>
+      </div>
+    <div >
+        <button type="submit" class="btn btn-primary" 
+        [disabled]="!usernewForm.valid" >Enviar</button> 
+        <span class="espaco"></span>      
+        
+    </div>
+    
+  </form>
