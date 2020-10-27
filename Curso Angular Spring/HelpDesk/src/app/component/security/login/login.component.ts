@@ -11,7 +11,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-  usuario = new Usuario('','','','');
+  usuario = new Usuario();
   shared: SharedService;
   message: string;
 
@@ -41,18 +41,9 @@ export class LoginComponent implements OnInit {
 
   cancelaLogin(){
     this.message ='';
-    this.usuario = new Usuario('','','','');
+    this.usuario = new Usuario();
     window.location.href = "/login";
     window.location.reload();
-  }
-
-  getFromGrupClass(isInvalid: boolean, isDirty: any): {} {
-    const newLocal = true;
-    return {
-      'form-group': newLocal,
-      'has-error': isInvalid && isDirty,
-      'has-success': !isInvalid && isDirty
-    };
-  }
+  }  
 
 }

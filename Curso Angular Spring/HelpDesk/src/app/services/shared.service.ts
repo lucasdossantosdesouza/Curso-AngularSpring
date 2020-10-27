@@ -23,7 +23,6 @@ export class SharedService {
   }
 
   isLoggedIn():boolean{
-    console.log(SharedService.getInstance());
     if(this.usuario == null){
         return false;
     }

@@ -1,3 +1,4 @@
+import { RouterModule } from '@angular/router';
 import { AuthInterceptor } from './component/security/auth.interceptor';
 import { FormsModule } from '@angular/forms';
 import { SharedService } from './services/shared.service';
@@ -28,7 +29,7 @@ import { AuthGuard } from './component/security/auth.guard';
     BrowserModule,
     FormsModule,
     AppRoutingModule,
-    HttpClientModule      
+    HttpClientModule    
   ],
   providers: [UsuarioService, TicketService, SharedService, AuthGuard,
   {

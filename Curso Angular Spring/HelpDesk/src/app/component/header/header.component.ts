@@ -9,15 +9,12 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
   @Input() title: string;
-  shared: SharedService;  
-  public usuario = new Usuario('','','','');  
-
-  constructor() {
-    this.shared = SharedService.getInstance();
-    this.usuario = this.shared.usuario;      
-   }
+   constructor() {
+  
+  }
  
   ngOnInit(): void {
+ 
   }
 
 }
