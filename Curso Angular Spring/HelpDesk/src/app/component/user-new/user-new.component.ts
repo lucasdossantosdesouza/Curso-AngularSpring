@@ -20,8 +20,6 @@ export class UserNewComponent implements OnInit {
   usuarios:Array<Usuario>;
   message: {};
   classCss: {};
-  page:number;
-  count:number;
 
   constructor(private usuarioService: UsuarioService,
     private router:ActivatedRoute) { 
@@ -39,18 +37,6 @@ export class UserNewComponent implements OnInit {
     this.usuarioService.findById(this.usuario.id).subscribe((responseApi: ResponseApi)=>{
       this.usuario = responseApi.data;
       this.usuario.password = '';
-    }, error=>{
-      this.showMessage({
-        type: 'error',
-        text: error['error']['errors'][0]
-      })
-    }     
-    );
-  }
-
-  findAll(){   
-    this.usuarioService.findAll(this.page,this.count).subscribe((responseApi: ResponseApi)=>{
-      this.usuarios = responseApi.data;
     }, error=>{
       this.showMessage({
         type: 'error',

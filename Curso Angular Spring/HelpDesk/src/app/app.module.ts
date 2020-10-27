@@ -16,6 +16,8 @@ import { HomeComponent } from './component/home/home.component';
 import { LoginComponent } from './component/security/login/login.component';
 import { AuthGuard } from './component/security/auth.guard';
 import { UserNewComponent } from './component/user-new/user-new.component';
+import { UserListComponent } from './component/user-list/user-list.component';
+import { PaginationComponent } from './component/pagination/pagination.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +27,9 @@ import { UserNewComponent } from './component/user-new/user-new.component';
     FooterComponent,
     HomeComponent,
     LoginComponent,
-    UserNewComponent    
+    UserNewComponent,
+    UserListComponent,
+    PaginationComponent    
   ],
   imports: [
     BrowserModule,
