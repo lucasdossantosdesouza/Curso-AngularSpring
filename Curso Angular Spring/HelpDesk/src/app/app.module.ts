@@ -1,5 +1,7 @@
+import { AlertModule } from './_alert/alert.module';
+import { AlertService } from './_alert/alert.service';
+import { AlertComponent } from './_alert/alert.component';
 import { DialogService } from './services/dialog.service';
-import { RouterModule } from '@angular/router';
 import { AuthInterceptor } from './component/security/auth.interceptor';
 import { FormsModule } from '@angular/forms';
 import { SharedService } from './services/shared.service';
@@ -30,13 +32,16 @@ import { PaginationComponent } from './component/pagination/pagination.component
     LoginComponent,
     UserNewComponent,
     UserListComponent,
-    PaginationComponent    
+    PaginationComponent
+       
   ],
   imports: [
     BrowserModule,
     FormsModule,
     AppRoutingModule,
-    HttpClientModule    
+    HttpClientModule,
+    AlertModule 
+   
   ],
   providers: [UsuarioService, TicketService, SharedService, AuthGuard,DialogService,
   {

@@ -1,3 +1,4 @@
+import { AlertService } from './../../_alert/alert.service';
 import { ResponseApi } from './../../model/response-api';
 import { ActivatedRoute} from '@angular/router';
 import { UsuarioService } from './../../services/usuario.service';
@@ -11,6 +12,7 @@ import { Usuario } from 'src/app/model/usuario';
   templateUrl: './user-new.component.html',
   styleUrls: ['./user-new.component.css']
 })
+
 export class UserNewComponent implements OnInit {
 
   @ViewChild("form")
@@ -20,10 +22,14 @@ export class UserNewComponent implements OnInit {
   usuarios:Array<Usuario>;
   message: {};
   classCss: {};
-  statusSucess: boolean;
+
+  options = {
+    autoClose: false,
+    keepAfterRouteChange: false
+  };
 
   constructor(private usuarioService: UsuarioService,
-    private router:ActivatedRoute) { 
+    private router:ActivatedRoute, public alertService: AlertService) { 
     this.shared = SharedService.getInstance();
   }
 
@@ -53,9 +59,9 @@ export class UserNewComponent implements OnInit {
     this.usuarioService.createOrUpdate(this.usuario).subscribe((responseApi: ResponseApi)=>{
       this.usuario = new Usuario();
       let userRet: Usuario = responseApi.data;
-      this.usernewForm.resetForm();
-      this.statusSucess = true;
-      document.getElementById('success').hidden = true;
+      this.alertService.success('Usuario Salvo com sucesso',{ id: 'alert-1' });
+      //this.usernewForm.resetForm();
+      
     });
   } 
   
