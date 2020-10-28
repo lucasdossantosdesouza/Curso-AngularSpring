@@ -24,7 +24,7 @@
         <label for="exampleProfile">Profile</label>
         <select  [(ngModel)]="usuario.profile"  name="profile"
         class="form-control select2" id="profile" style="width: 100%;"
-        #profile="ngModel"  profile required>
+        #profile="ngModel" aria-placeholder="Profile"  profile required>
             <option >ROLE_ADMIN</option>
             <option >ROLE_CUSTOMER</option>
             <option >ROLE_TECHNICIAN</option>

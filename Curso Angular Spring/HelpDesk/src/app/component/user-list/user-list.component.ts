@@ -1,3 +1,4 @@
+import { AlertService } from './../../_alert/alert.service';
 import { DialogService } from './../../services/dialog.service';
 import { Page } from './../../model/page';
 import { ResponseApi } from './../../model/response-api';
@@ -24,7 +25,8 @@ export class UserListComponent implements OnInit {
   pag:number = 0;
 
   constructor(private usuarioService: UsuarioService,
-    private router:Router,private dialogService: DialogService) { 
+    private router:Router,private dialogService: DialogService, 
+    public alertService: AlertService) { 
     this.shared = SharedService.getInstance();
   }
 
@@ -38,10 +40,8 @@ export class UserListComponent implements OnInit {
       this.page = responseApi.data;
       this.paginas = [this.page.totalPages];
     }, error=>{
-      this.showMessage({
-        type: 'error',
-        text: error['error']['errors'][0]
-      })
+      this.alertService.error(error['error']['errors'][0],{ id: 'alert-1' });     
+
     }     
     );
   }
@@ -55,35 +55,16 @@ export class UserListComponent implements OnInit {
       if(candelete){
         this.message = {};
         this.usuarioService.delete(id).subscribe((responseApi: ResponseApi)=>{
-         this.showMessage({
-            type: 'success',
-            text: 'Excluido com sucesso '
-          });
+          this.alertService.success('Excluido com sucesso',{ id: 'alert-1' });
           this.findAll(this.pag,this.count)
         }, error=>{
-          this.showMessage({
-            type: 'error',
-            text: error['error']['errors'][0]
-          })
+          this.alertService.error(error['error']['errors'][0],{ id: 'alert-1' });     
+
         }     
         );
       }
     })    
-  }  
-
-  private showMessage(message:{type:string, text:string}){
-    this.message = message;
-    this.buildClasses(message.type);
-    setTimeout(() => {
-      this.message = undefined;
-    }, 3000);
-  }
-  private buildClasses(type: string) : void{
-      this.classCss ={
-        'alert': true
-      }
-      this.classCss['alert'+ type] = true;
-  }
+  }   
 
   changePage(event) {
     this.findAll(event.page, event.size);

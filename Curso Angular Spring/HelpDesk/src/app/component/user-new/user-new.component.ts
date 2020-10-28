@@ -45,11 +45,8 @@ export class UserNewComponent implements OnInit {
     this.usuarioService.findById(id).subscribe((responseApi: ResponseApi)=>{
       this.usuario = responseApi.data;
       this.usuario.password = '';
-    }, error=>{
-      this.showMessage({
-        type: 'error',
-        text: error['error']['errors'][0]
-      })
+    }, error=>{     
+      this.alertService.error(error['error']['errors'][0],{ id: 'alert-1' });     
     }     
     );
   }
@@ -59,25 +56,12 @@ export class UserNewComponent implements OnInit {
     this.usuarioService.createOrUpdate(this.usuario).subscribe((responseApi: ResponseApi)=>{
       this.usuario = new Usuario();
       let userRet: Usuario = responseApi.data;
-      this.alertService.success('Usuario Salvo com sucesso',{ id: 'alert-1' });
-      //this.usernewForm.resetForm();
+      this.alertService.success(`Usuario ${userRet.email} Salvo com sucesso`,{ id: 'alert-1' });
+      setTimeout(() => {
+        this.usernewForm.resetForm();
+      }, 3000);
       
     });
   } 
-  
-
-  private showMessage(message:{type:string, text:string}){
-    this.message = message;
-    this.buildClasses(message.type);
-    setTimeout(() => {
-      this.message = undefined;
-    }, 3000);
-  }
-  private buildClasses(type: string) : void{
-      this.classCss ={
-        'alert': true
-      }
-      this.classCss['alert'+ type] = true;
-  }
 
 }
