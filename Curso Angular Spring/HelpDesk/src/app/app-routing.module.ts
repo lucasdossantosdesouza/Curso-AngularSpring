@@ -1,3 +1,4 @@
+import { TicketNewComponent } from './component/ticket-new/ticket-new.component';
 import { UserListComponent } from './component/user-list/user-list.component';
 import { LoginComponent } from './component/security/login/login.component';
 import { HomeComponent } from './component/home/home.component';
@@ -11,7 +12,10 @@ const routes: Routes = [
 { path: '', component: HomeComponent,  canActivate:[AuthGuard] },
 { path: 'novo-usuario', component: UserNewComponent,  canActivate:[AuthGuard] },
 { path: 'novo-usuario/:id', component: UserNewComponent,  canActivate:[AuthGuard] },
-{ path: 'lista-usuario', component: UserListComponent,  canActivate:[AuthGuard] }];
+{ path: 'lista-usuario', component: UserListComponent,  canActivate:[AuthGuard] },
+{ path: 'novo-ticket', component: TicketNewComponent,  canActivate:[AuthGuard] },
+{ path: 'novo-ticket/:id', component: TicketNewComponent,  canActivate:[AuthGuard] }];
+
 
 
 @NgModule({

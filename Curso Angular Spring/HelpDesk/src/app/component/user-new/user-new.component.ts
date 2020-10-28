@@ -19,10 +19,6 @@ export class UserNewComponent implements OnInit {
   usernewForm:NgForm;
   usuario = new Usuario();
   shared:SharedService;
-  usuarios:Array<Usuario>;
-  message: {};
-  classCss: {};
-
   options = {
     autoClose: false,
     keepAfterRouteChange: false
@@ -52,15 +48,17 @@ export class UserNewComponent implements OnInit {
   }
 
   registrar(){
-    this.message = {};
-    this.usuarioService.createOrUpdate(this.usuario).subscribe((responseApi: ResponseApi)=>{
-      this.usuario = new Usuario();
-      let userRet: Usuario = responseApi.data;
-      this.alertService.success(`Usuario ${userRet.email} Salvo com sucesso`,{ id: 'alert-1' });
-      setTimeout(() => {
-        this.usernewForm.resetForm();
-      }, 3000);
-      
+    
+    this.usuarioService.createOrUpdate(this.usuario).subscribe(
+      (responseApi: ResponseApi)=>{          
+          let userRet: Usuario = responseApi.data;
+          this.alertService.success(`Usuario ${userRet.email} salvo com sucesso `,
+          { id: 'alert-1' });
+          setTimeout(() => {
+            this.alertService.clear('alert-1');
+            this.usuario = new Usuario();
+          }, 4000);
+           
     });
   } 
 

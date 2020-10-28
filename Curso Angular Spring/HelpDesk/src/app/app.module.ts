@@ -21,6 +21,7 @@ import { AuthGuard } from './component/security/auth.guard';
 import { UserNewComponent } from './component/user-new/user-new.component';
 import { UserListComponent } from './component/user-list/user-list.component';
 import { PaginationComponent } from './component/pagination/pagination.component';
+import { TicketNewComponent } from './component/ticket-new/ticket-new.component';
 
 @NgModule({
   declarations: [
@@ -32,8 +33,8 @@ import { PaginationComponent } from './component/pagination/pagination.component
     LoginComponent,
     UserNewComponent,
     UserListComponent,
-    PaginationComponent
-       
+    PaginationComponent,
+    TicketNewComponent       
   ],
   imports: [
     BrowserModule,

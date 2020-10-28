@@ -18,8 +18,6 @@ export class UserListComponent implements OnInit {
   shared:SharedService;
   usuarios:Array<Usuario>; 
   paginas:Array<number>; 
-  message: {};
-  classCss: {};
   page: Page;
   count:number = 5;
   pag:number = 0;
@@ -53,7 +51,6 @@ export class UserListComponent implements OnInit {
     this.dialogService.confirm('Deseja Realmente excluir usuário')
     .then((candelete: boolean)=>{
       if(candelete){
-        this.message = {};
         this.usuarioService.delete(id).subscribe((responseApi: ResponseApi)=>{
           this.alertService.success('Excluido com sucesso',{ id: 'alert-1' });
           this.findAll(this.pag,this.count)
