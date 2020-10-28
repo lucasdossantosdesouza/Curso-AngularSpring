@@ -26,7 +26,7 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
                   </a>
               </li>
               <span class="espaco"></span>   
-              <select (ngModelChange)="changePage()" [(ngModel)]="size" class="custom-select" style="height:43px;">
+              <select (ngModelChange)="changePage()" [(ngModel)]="size" class="custom-select" style="height:38px;">
                     <option value="5" selected>5</option>
                     <option value="10">10</option>
                     <option value="15">15</option>
@@ -39,7 +39,7 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 })
 export class PaginationComponent implements OnInit {
     private size: number = 5;
-    private page;
+    public page;
     @Input("page") public set value(page : any){
         if(!page) return;
         this.page = page;

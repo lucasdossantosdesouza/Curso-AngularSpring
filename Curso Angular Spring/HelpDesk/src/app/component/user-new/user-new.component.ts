@@ -1,5 +1,5 @@
 import { ResponseApi } from './../../model/response-api';
-import { ActivatedRoute, ActivatedRouteSnapshot } from '@angular/router';
+import { ActivatedRoute} from '@angular/router';
 import { UsuarioService } from './../../services/usuario.service';
 import { SharedService } from 'src/app/services/shared.service';
 import { NgForm } from '@angular/forms';
@@ -20,6 +20,7 @@ export class UserNewComponent implements OnInit {
   usuarios:Array<Usuario>;
   message: {};
   classCss: {};
+  statusSucess: boolean;
 
   constructor(private usuarioService: UsuarioService,
     private router:ActivatedRoute) { 
@@ -29,12 +30,13 @@ export class UserNewComponent implements OnInit {
   ngOnInit(): void {
     let id: string = this.router.snapshot.params['id'];
     if(id != undefined){
+      console.log(id);
       this.findByid(id);
     }
   }
 
   findByid(id: string){
-    this.usuarioService.findById(this.usuario.id).subscribe((responseApi: ResponseApi)=>{
+    this.usuarioService.findById(id).subscribe((responseApi: ResponseApi)=>{
       this.usuario = responseApi.data;
       this.usuario.password = '';
     }, error=>{
@@ -52,28 +54,11 @@ export class UserNewComponent implements OnInit {
       this.usuario = new Usuario();
       let userRet: Usuario = responseApi.data;
       this.usernewForm.resetForm();
-      this.showMessage({
-        type: 'success',
-        text: `Registrado ${userRet.email}`
-      })
+      this.statusSucess = true;
+      document.getElementById('success').hidden = true;
     });
-  }
-
-  delete(){
-    this.message = {};
-    this.usuarioService.delete(this.usuario.id).subscribe((responseApi: ResponseApi)=>{
-     this.showMessage({
-        type: 'success',
-        text: `Deletado `
-      })
-    }, error=>{
-      this.showMessage({
-        type: 'error',
-        text: error['error']['errors'][0]
-      })
-    }     
-    );
-  }  
+  } 
+  
 
   private showMessage(message:{type:string, text:string}){
     this.message = message;

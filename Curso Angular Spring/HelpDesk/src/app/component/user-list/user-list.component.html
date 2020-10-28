@@ -2,33 +2,31 @@
 </h3>
 
 
-      <div class="table-responsive" style="width: 100%;">
+      <div class="table-responsive" >
 
         <table class="table table-striped" >
           <thead>
             <tr>
               <th>Id</th>
               <th>Email</th>
-              <th>Profile</th>
-              
-          </tr>
+              <th>Profile</th>              
+            </tr>
           </thead>
           <tbody>
-            <tr *ngFor="let item of usuarios" >
-              <td >{{ item.id }}</td>
-              <td >{{ item.email }}</td>
-              <td  width="100">{{ item.profile }}</td>
-              <!--<td  width="200">
-                <i class="material-icons" >
-                  delete_forever
-                  </i>               
-                  <i class="material-icons" >
-                    edit
-                    </i> 
-              </td>-->
-
+            <tr *ngFor="let item of usuarios" >             
+              <td>{{ item.email }}</td>
+              <td>{{ item.profile }}</td>
+              <td ><button (click)="edit(item.id)" class="btn btn-primary">editar</button> </td>
+              <td><button (click)="delete(item.id)" class="btn btn-primary">excluir</button></td>
             </tr>
-
           </tbody>
         </table>
+        <!--<div><ul class="pagination pagination-sm no-margin pull-right">
+          <li><a href="" (click)="setPreviousPage($event)" >&raquo;</a> </li>
+          <li *ngFor="let p of paginas; let i=index">
+             <a href="" [ngClass]="{pagination-focus : i == pag}"
+              (click)="setPage(i, $event)">{{ i + 1 }}</a>
+          </li>
+          <li><a href="" (paginationEvent)="setNextPage($event)">&raquo;</a> </li>
+        </ul></div>-->       
         <pagination [page]="page" (paginationEvent)=changePage($event)></pagination>

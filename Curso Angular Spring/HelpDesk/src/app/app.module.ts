@@ -1,3 +1,4 @@
+import { DialogService } from './services/dialog.service';
 import { RouterModule } from '@angular/router';
 import { AuthInterceptor } from './component/security/auth.interceptor';
 import { FormsModule } from '@angular/forms';
@@ -37,7 +38,7 @@ import { PaginationComponent } from './component/pagination/pagination.component
     AppRoutingModule,
     HttpClientModule    
   ],
-  providers: [UsuarioService, TicketService, SharedService, AuthGuard,
+  providers: [UsuarioService, TicketService, SharedService, AuthGuard,DialogService,
   {
     provide: HTTP_INTERCEPTORS,
     useClass: AuthInterceptor,

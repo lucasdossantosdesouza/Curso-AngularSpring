@@ -1,6 +1,6 @@
 <h3 class="mt-5">HelpDesk | Login</h3>
 
-<form #userForm="ngForm" (ngSubmit)="loginIn()">
+<form #userForm="ngForm" (ngSubmit)="loginIn()" style="max-width: 70%;padding-right: 50px;">
     <div class="form-group">
       <label for="exampleInputEmail1">Endereço de email</label>
       <input type="email" [(ngModel)]="usuario.email" class="form-control" name="email"
@@ -20,10 +20,10 @@
    
     <div >
         <button type="submit" class="btn btn-primary" 
-        [disabled]="!userForm.valid" >Enviar</button> 
-        <span class="espaco"></span>      
+        [disabled]="!userForm.valid" >Login</button> 
+            <span class="espaco"></span>
         <button type="submit" class="btn btn-info pull-right " 
-        (click)="cancelaLogin()" style="margin-right:30em;">Limpar</button>
+        (click)="cancelaLogin()" >Limpar</button>
     </div>
     
   </form>
