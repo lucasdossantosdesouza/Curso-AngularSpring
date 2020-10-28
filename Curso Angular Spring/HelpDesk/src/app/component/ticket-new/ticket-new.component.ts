@@ -6,6 +6,7 @@ import { TicketService } from './../../services/ticket.service';
 import { SharedService } from './../../services/shared.service';
 import { Ticket } from './../../model/ticket';
 import { Component, OnInit, ViewChild } from '@angular/core';
+import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
 
 @Component({
   selector: 'app-ticket-new',
@@ -47,8 +48,7 @@ export class TicketNewComponent implements OnInit {
     );
   }
 
-  registrar(){
-    this.ticket.usuario = this.shared.usuario;
+  registrar(){  
     this.ticketService.createOrUpdate(this.ticket).subscribe(
       (responseApi: ResponseApi)=>{          
           let ticketRet: Ticket = responseApi.data;
@@ -62,6 +62,19 @@ export class TicketNewComponent implements OnInit {
     });
   } 
 
+  onFileChange(event: { target: { files: Blob[]; }; }): void{
+    if(event.target.files[0].size > 2000000){
+      this.alertService.success("Tamanho máximo para imagens é de 2MB",
+      { id: 'alert-1' });
+    }else{
+      this.ticket.image = '';
+      var rander = new FileReader();
+      rander.onloadend = (e: Event) =>{
+        this.ticket.image = rander.result;
+      }
+      rander.readAsDataURL(event.target.files[0]);
+    }
+  }
  
 
 }
