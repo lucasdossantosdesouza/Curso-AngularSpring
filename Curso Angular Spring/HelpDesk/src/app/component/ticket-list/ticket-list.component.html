@@ -67,7 +67,10 @@
               <th>Número</th>
               <th>Titulo</th>
               <th>Status</th>
-              <th>Prioridade</th>              
+              <th>Prioridade</th> 
+              <th *ngIf="shared.usuario.profile == 'CUSTOMER' "></th>   
+              <th *ngIf="shared.usuario.profile == 'CUSTOMER' "></th>   
+              <th></th>      
             </tr>
           </thead>
           <tbody>
@@ -78,6 +81,7 @@
               <td>{{ item.priority }}</td>
               <td ><button (click)="edit(item.id)" class="btn btn-primary">editar</button> </td>
               <td><button (click)="delete(item.id)" class="btn btn-primary">excluir</button></td>
+              <td><button (click)="detail(item.id)" class="btn btn-primary">excluir</button></td>
             </tr>
           </tbody>
 
