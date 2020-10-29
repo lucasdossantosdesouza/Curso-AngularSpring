@@ -1,6 +1,6 @@
 import { AlertService } from './../../_alert/alert.service';
 import { ResponseApi } from './../../model/response-api';
-import { ActivatedRoute} from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { UsuarioService } from './../../services/usuario.service';
 import { SharedService } from 'src/app/services/shared.service';
 import { NgForm } from '@angular/forms';
@@ -24,7 +24,7 @@ export class UserNewComponent implements OnInit {
     keepAfterRouteChange: false
   };
 
-  constructor(private usuarioService: UsuarioService,
+  constructor(private usuarioService: UsuarioService,private route:Router,
     private router:ActivatedRoute, public alertService: AlertService) { 
     this.shared = SharedService.getInstance();
   }
@@ -57,6 +57,8 @@ export class UserNewComponent implements OnInit {
           setTimeout(() => {
             this.alertService.clear('alert-1');
             this.usuario = new Usuario();
+            this.route.navigate(['/novo-usuario']);
+           
           }, 4000);
            
     });
