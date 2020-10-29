@@ -22,7 +22,7 @@ export class TicketListComponent implements OnInit {
   count:number = 5;
   pag:number = 0;
   assignedToMe:boolean = false;
-  ticketFilter: Ticket
+  ticketFilter =new  Ticket();
 
   constructor(private ticketService: TicketService,
     private router:Router,private dialogService: DialogService,
@@ -36,8 +36,7 @@ export class TicketListComponent implements OnInit {
 
   findAll(page: number, count: number){   
     this.ticketService.listTicket(page, count).subscribe((responseApi: ResponseApi)=>{
-      this.tickets = responseApi.data.content;
-      console.log(this.tickets);
+      this.tickets = responseApi.data.content;     
       this.page = responseApi.data;
       this.paginas = [this.page.totalPages];
     }, error=>{
@@ -53,9 +52,7 @@ export class TicketListComponent implements OnInit {
     this.ticketService.findByParams(this.pag, this.count,this.ticketFilter,this.assignedToMe)
     .subscribe((responseApi: ResponseApi)=>{
       this.ticketFilter.number = this.ticketFilter.number == 0 ? null : this.ticketFilter.number;
-      this.ticketFilter.titulo = this.ticketFilter.titulo == "uninformed" ? '' : this.ticketFilter.titulo;
-      this.ticketFilter.priority = this.ticketFilter.priority == 'uninformed' ? null : this.ticketFilter.priority;
-      this.ticketFilter.status = this.ticketFilter.status == 'uninformed' ?  null : this.ticketFilter.status;
+      this.ticketFilter.titulo = this.ticketFilter.titulo == 'uninformed' ? '' : this.ticketFilter.titulo;
       this.tickets = responseApi.data.content;
       this.page = responseApi.data;
       this.paginas = [this.page.totalPages];
