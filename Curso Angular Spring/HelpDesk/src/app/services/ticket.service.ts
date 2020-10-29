@@ -40,9 +40,9 @@ export class TicketService {
   
   findByParams(page: number , count: number,t: Ticket, assigned:boolean){
     t.number = t.number != null ? t.number : 0;
-    t.titulo = t.titulo == null ? "uninformed" : t.titulo;
-    t.priority = t.priority == null ? "uninformed" : t.priority;
-    t.status = t.status == null ?  "uninformed" : t.status;
+    t.titulo = t.titulo == null ? 'uninformed' : t.titulo;
+    t.priority = t.priority == null ? 'uninformed' : t.priority;
+    t.status = t.status == null ?  'uninformed' : t.status;
 
     return this.http.get(`${HELP_DESK_API}/api/ticket/${page}/${count}/${t.titulo}/${t.status}/${t.priority}/${t.number}/${assigned}`);
   }

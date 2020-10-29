@@ -24,7 +24,7 @@ export class UserNewComponent implements OnInit {
     keepAfterRouteChange: false
   };
 
-  constructor(private usuarioService: UsuarioService,private route:Router,
+  constructor(private usuarioService: UsuarioService, private route:Router,
     private router:ActivatedRoute, public alertService: AlertService) { 
     this.shared = SharedService.getInstance();
   }

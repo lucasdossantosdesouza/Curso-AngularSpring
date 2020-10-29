@@ -1,3 +1,4 @@
+import { TicketDetailComponent } from './component/ticket-detail/ticket-detail.component';
 import { TicketListComponent } from './component/ticket-list/ticket-list.component';
 import { TicketNewComponent } from './component/ticket-new/ticket-new.component';
 import { UserListComponent } from './component/user-list/user-list.component';
@@ -16,7 +17,9 @@ const routes: Routes = [
 { path: 'lista-usuario', component: UserListComponent,  canActivate:[AuthGuard] },
 { path: 'novo-ticket', component: TicketNewComponent,  canActivate:[AuthGuard] },
 { path: 'novo-ticket/:id', component: TicketNewComponent,  canActivate:[AuthGuard] },
-{ path: 'lista-ticket', component: TicketListComponent,  canActivate:[AuthGuard] }];
+{ path: 'lista-ticket', component: TicketListComponent,  canActivate:[AuthGuard] },
+{ path: 'detail-ticket/:id', component: TicketDetailComponent,  canActivate:[AuthGuard] }
+];
 
 
 

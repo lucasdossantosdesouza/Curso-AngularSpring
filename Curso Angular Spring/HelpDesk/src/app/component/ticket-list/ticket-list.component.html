@@ -1,33 +1,86 @@
-<h3 class="mt-5">HelpDesk | Lista de Usuarios
-</h3>
-
+<h3 class="mt-5">HelpDesk | Lista de Tickets</h3>
 
       <div class="table-responsive" >
+
         <alert id="alert-1"></alert>
+        <div  class="jumbotron p-4" *ngIf="shared.usuario.profile == 'TECHNICIAN' ">  
+        <form (ngSubmit)="filter()" >
+
+            <div class="form-group" style="padding-left: 25px;">
+              <input type="checkbox" class="form-check-input" id="assignedToMe"
+               [(ngModel)]="assignedToMe">
+              <label class="form-check-label" for="assignedToMe">Atribuído pra mim</label>
+            </div>
+
+            <div class="form-group">     
+      
+            <label for="numero">Número</label>
+      
+            <input type="text" [(ngModel)]="ticketFilter.number" class="form-control" name="numero"
+            id="numero"  >   
+      
+            </div>
+
+            <div class="form-group">
+      
+            <label for="titulo">Titulo</label>
+      
+            <input type="text" [(ngModel)]="ticketFilter.titulo" class="form-control" name="titulo"
+            id="titulo"  >   
+      
+            </div>
+
+            <div class="form-group">
+              <label for="status">Status</label>
+      
+              <select  [(ngModel)]="ticketFilter.status"  name="status"
+              class="form-control select2" id="status" style="width: 100%;">
+                  <option >New</option>
+                  <option >Assigned</option>
+                  <option >Resolved</option>
+                  <option >Aproved</option>
+                  <option >Disaproved</option>
+                  <option >Closed</option>
+              </select>     
+          </div>
+        
+            <div class="form-group">
+                <label for="priority">Prioridade</label>
+        
+                <select  [(ngModel)]="ticketFilter.priority"  name="priority"
+                class="form-control select2" id="priority" style="width: 100%;">
+                    <option >High</option>
+                    <option >Normal</option>
+                    <option >Low</option>
+                </select>     
+            </div>
+            <div>
+              <button type="submit" class="btn btn-primary">Pesquisar</button>    
+              <span class="espaco"></span>
+            <button type="submit" class="btn btn-info pull-right "(click)="cleanFilter()" >Limpar Filtros</button>
+          </div>
+          </form>
+          </div>
         <table class="table table-striped" >
           <thead>
             <tr>
-              <th>Email</th>
-              <th>Profile</th>
-              <th></th>
-              <th></th>              
+              <th>Número</th>
+              <th>Titulo</th>
+              <th>Status</th>
+              <th>Prioridade</th>              
             </tr>
           </thead>
           <tbody>
-            <tr *ngFor="let item of usuarios" >             
-              <td>{{ item.email }}</td>
-              <td>{{ item.profile }}</td>
+            <tr *ngFor="let item of tickets" >  
+              <td>{{ item.number }}</td>           
+              <td>{{ item.titulo }}</td>
+              <td>{{ item.status }}</td>
+              <td>{{ item.priority }}</td>
               <td ><button (click)="edit(item.id)" class="btn btn-primary">editar</button> </td>
               <td><button (click)="delete(item.id)" class="btn btn-primary">excluir</button></td>
             </tr>
           </tbody>
-        </table>
-        <!--<div><ul class="pagination pagination-sm no-margin pull-right">
-          <li><a href="" (click)="setPreviousPage($event)" >&raquo;</a> </li>
-          <li *ngFor="let p of paginas; let i=index">
-             <a href="" [ngClass]="{pagination-focus : i == pag}"
-              (click)="setPage(i, $event)">{{ i + 1 }}</a>
-          </li>
-          <li><a href="" (paginationEvent)="setNextPage($event)">&raquo;</a> </li>
-        </ul></div>-->       
-        <pagination [page]="page" (paginationEvent)=changePage($event)></pagination>
+
+    </table>      
+    <pagination [page]="page" (paginationEvent)=changePage($event)></pagination>
+</div>

@@ -1,7 +1,7 @@
 import { NgForm } from '@angular/forms';
 import { AlertService } from './../../_alert/alert.service';
 import { ResponseApi } from './../../model/response-api';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { TicketService } from './../../services/ticket.service';
 import { SharedService } from './../../services/shared.service';
 import { Ticket } from './../../model/ticket';
@@ -26,7 +26,7 @@ export class TicketNewComponent implements OnInit {
   
 
   constructor(private ticketService: TicketService, private router: ActivatedRoute,
-    public alertService: AlertService) {
+    public alertService: AlertService,private route:Router) {
     this.shared = SharedService.getInstance();
    }
 
@@ -57,6 +57,7 @@ export class TicketNewComponent implements OnInit {
           setTimeout(() => {
             this.alertService.clear('alert-1');
             this.ticket = new Ticket();
+            this.route.navigate(['/novo-ticket']);
           }, 4000);
            
     });
