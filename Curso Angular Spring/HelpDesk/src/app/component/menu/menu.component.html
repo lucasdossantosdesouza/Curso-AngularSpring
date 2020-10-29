@@ -2,7 +2,7 @@
         
 
     <ul class="list-unstyled components">
-        <div class="active">
+        <div class="active" *ngIf="shared.usuario.profile == 'ADMIN' ">
             <div class="card-header" id="headingTwo">
               <h5 class="mb-0">
                 <a href="#" class="dropdown-toggle" style="font-size: 14px;"
@@ -30,7 +30,7 @@
             </div>
           </div>
        
-          <div class="active">
+          <div class="active" *ngIf="shared.usuario.profile != 'ADMIN' ">
             <div class="card-header" id="headingTwo">
               <h5 class="mb-0">
                 <a href="#" class="dropdown-toggle" style="font-size: 14px;"
@@ -49,10 +49,10 @@
             
             class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
               <div class="card-body" >
-                <a href="#" >  Lista    </a>
+                <a [routerLink]="['/lista-ticket']" routerLinkActive="router-link-active" >  Lista   </a>
                   
               </div>
-              <div class="card-body">
+              <div class="card-body" *ngIf="shared.usuario.profile == 'CUSTOMER' ">
                 <a [routerLink]="['/novo-ticket']" routerLinkActive="router-link-active" >  Novo   </a>
                   
               </div>
@@ -66,8 +66,7 @@
                 data-toggle="collapse" data-target="#collapseSummary" 
                 aria-expanded="false" aria-controls="collapseSummary">
                 <i class="fa fa-edit"></i>
-                Summary
-                
+                Summary                
                 </a>
               </h5>
             </div>
@@ -76,7 +75,7 @@
             background: #333333"            
             class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
               <div class="card-body">
-                <a href="#" >  To View    </a>
+                <a [routerLink]="['/summary']" routerLinkActive="router-link-active" >  View   </a>
                   
               </div>
             </div>

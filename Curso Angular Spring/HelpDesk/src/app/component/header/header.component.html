@@ -12,8 +12,9 @@
                 </div> 
                 
            <div> <p style="color: #fff;">
-            
-            <button type="button" class="btn" style="color: #fff;max-height:50px;padding: unset;">Logout</button>
+            {{shared.usuario.email}} - {{shared.usuario.profile}} |
+            <button type="button" class="btn btn-link" (click)="signOut()" style="color: #fff;max-height:50px;padding: unset;">
+               Logout</button>
            </p></div>
            
              
