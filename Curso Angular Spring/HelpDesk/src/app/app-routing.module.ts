@@ -1,3 +1,4 @@
+import { SummaryComponent } from './component/summary/summary.component';
 import { TicketDetailComponent } from './component/ticket-detail/ticket-detail.component';
 import { TicketListComponent } from './component/ticket-list/ticket-list.component';
 import { TicketNewComponent } from './component/ticket-new/ticket-new.component';
@@ -18,7 +19,8 @@ const routes: Routes = [
 { path: 'novo-ticket', component: TicketNewComponent,  canActivate:[AuthGuard] },
 { path: 'novo-ticket/:id', component: TicketNewComponent,  canActivate:[AuthGuard] },
 { path: 'lista-ticket', component: TicketListComponent,  canActivate:[AuthGuard] },
-{ path: 'detail-ticket/:id', component: TicketDetailComponent,  canActivate:[AuthGuard] }
+{ path: 'detail-ticket/:id', component: TicketDetailComponent,  canActivate:[AuthGuard] },
+{ path: 'summary', component: SummaryComponent,  canActivate:[AuthGuard] }
 ];
 
 

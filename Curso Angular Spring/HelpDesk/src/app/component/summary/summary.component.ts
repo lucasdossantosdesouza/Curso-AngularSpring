@@ -27,7 +27,8 @@ export class SummaryComponent implements OnInit {
 
   findSummary(){   
     this.ticketService.summary().subscribe((responseApi: ResponseApi)=>{
-      this.summary = responseApi.data.content;         
+      this.summary = responseApi.data;   
+      console.log(this.summary);      
     }, error=>{
       this.alertService.error(error['error']['errors'][0],{ id: 'alert-1' });   
     }     
