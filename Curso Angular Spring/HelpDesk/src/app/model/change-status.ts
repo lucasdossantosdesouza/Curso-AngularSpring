@@ -12,4 +12,6 @@ public data: String;
 
 public statusEnum: string;
 
+
+
 }

@@ -1,3 +1,4 @@
+import { ChangeStatus } from './../../model/change-status';
 import { ResponseApi } from './../../model/response-api';
 import { Router } from '@angular/router';
 import { AlertService } from './../../_alert/alert.service';
@@ -97,6 +98,31 @@ export class TicketListComponent implements OnInit {
 
   changePage(event: { page: number; size: number; }) {
     this.findAll(event.page, event.size);
+  }
+
+  public getStatus(ticket: Ticket)  : string{
+    if(ticket.status == 'New'){
+      return 'Nova'
+    }else if(ticket.status == 'Assigned'){
+      return 'Atribuída'
+    }else if(ticket.status == 'Resolved'){
+      return 'Resolvida'
+    }else if(ticket.status == 'Aproved'){
+      return 'Aprovada'
+    }if(ticket.status == 'Disaproved'){
+      return 'Desaprovada'
+    }
+    return 'Fechada'
+  }
+
+  public getPriority(ticket: Ticket) : string{
+    if(ticket.priority == 'High'){
+      return 'Alta'
+    }else if(ticket.priority == 'Normal'){
+      return 'Normal'
+    }else if(ticket.priority == 'Low'){
+      return 'Baixa'
+    }
   }
   
 }

@@ -3,7 +3,9 @@
       <div class="table-responsive" >
 
         <alert id="alert-1"></alert>
-        <div  class="jumbotron p-4" *ngIf="shared.usuario.profile == 'TECHNICIAN' "> 
+           
+        <div class="row">  
+        <div  class="col-sm" *ngIf="shared.usuario.profile == 'TECHNICIAN' "> 
 
             <div class="form-group" style="padding-left: 25px;">
 
@@ -61,7 +63,9 @@
             <button type="submit" class="btn btn-info pull-right" (click)="cleanFilter()" >Limpar Filtro(s)</button>
           </div>
 
-          </div>
+          </div>         
+    
+        <div  class="col-sm"> 
         <table class="table table-striped" >
           <thead>
             <tr>
@@ -78,16 +82,8 @@
             <tr *ngFor="let item of tickets" >  
               <td>{{ item.number }}</td>           
               <td>{{ item.titulo }}</td>
-              <td *ngIf="item.status == 'New' ">Novo</td>
-              <td *ngIf="item.status == 'Assigned' ">Atribuído</td>
-              <td *ngIf="item.status == 'Resolved' " >Resolvido</td>
-              <td *ngIf="item.status == 'Aproved' ">Aprovado</td>
-              <td *ngIf="item.status == 'Disaproved' ">Desaprovado</td>
-              <td *ngIf="item.status == 'Closed' ">Fechado</td>
-
-              <td *ngIf="item.priority == 'High' ">Alta</td>
-              <td *ngIf="item.priority == 'Normal' ">Normal</td>
-              <td *ngIf="item.priority == 'Low' " >Baixa</td>
+              <td > {{ getStatus(item) }}</td>             
+              <td> {{ getPriority(item) }}</td>
 
               <td *ngIf="shared.usuario.profile == 'CUSTOMER' ">
                 <button (click)="edit(item.id)" class="btn btn-primary">editar</button> </td>
@@ -99,6 +95,9 @@
             </tr>
           </tbody>
 
-    </table>      
+    </table>          
     <pagination [page]="page" (paginationEvent)=changePage($event)></pagination>
+    </div>
+    </div>
+
 </div>
