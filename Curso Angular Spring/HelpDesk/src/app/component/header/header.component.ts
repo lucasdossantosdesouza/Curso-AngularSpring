@@ -10,15 +10,14 @@ import { Component, Input, OnInit } from '@angular/core';
 export class HeaderComponent implements OnInit {
   @Input() title: string;
   shared: SharedService;
-  usuario:Usuario;
+  perfil: string;
 
   constructor() { 
-    this.shared = SharedService.getInstance();
-    this.usuario = new Usuario();
+    this.shared = SharedService.getInstance();    
   }
  
   ngOnInit(): void {
- 
+    
   }
 
   signOut(): void{
@@ -26,6 +25,15 @@ export class HeaderComponent implements OnInit {
     this.shared.usuario = null;
     window.location.href = '/login';
     window.location.reload();
+  }
+
+  public getProfile(): string{
+    if(this.shared.usuario.profile == 'ADMIN'){
+      return 'Administrador'
+    }else if(this.shared.usuario.profile == 'CUSTOMER'){
+      return 'Cliente'
+    }
+    return 'Técnico';
   }
 
 }

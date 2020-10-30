@@ -15,14 +15,8 @@ import { Usuario } from 'src/app/model/usuario';
 
 export class UserNewComponent implements OnInit {
 
-  @ViewChild("form")
-  usernewForm:NgForm;
   usuario = new Usuario();
-  shared:SharedService;
-  options = {
-    autoClose: false,
-    keepAfterRouteChange: false
-  };
+  shared:SharedService; 
 
   constructor(private usuarioService: UsuarioService, private route:Router,
     private router:ActivatedRoute, public alertService: AlertService) { 

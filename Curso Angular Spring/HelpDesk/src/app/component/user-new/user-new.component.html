@@ -1,4 +1,4 @@
-<h3 class="mt-5">HelpDesk | Novo Usuario</h3>
+<h2 class="mt-5">Novo Usuario</h2>
 <div  class="jumbotron p-4">  
 <form #usernewForm="ngForm" (ngSubmit)="registrar()" >
       <div class="form-group">
@@ -23,17 +23,17 @@
          Senha é Obrigatória</div>
     </div>
     <div class="form-group">
-        <label for="exampleProfile">Profile</label>
+        <label for="exampleProfile">Perfil</label>
         <select  [(ngModel)]="usuario.profile"  name="profile"
         class="form-control select2" id="profile" style="width: 100%;"
         #profile="ngModel" aria-placeholder="Profile"  profile required>
-            <option >ROLE_ADMIN</option>
-            <option >ROLE_CUSTOMER</option>
-            <option >ROLE_TECHNICIAN</option>
+            <option value="ROLE_ADMIN">Administrador</option>
+            <option value="ROLE_CUSTOMER">Cliente</option>
+            <option value="ROLE_TECHNICIAN">Técnico</option>
         </select>
         <div class="alert alert-danger" style="width: 250px;"  id="alert-4"
         *ngIf="profile.invalid && (profile.dirty || profile.touched)">
-          Profile é Obrigatorio</div>
+        Perfil é Obrigatorio</div>
       </div>
     <div >
         <button type="submit" class="btn btn-primary" 

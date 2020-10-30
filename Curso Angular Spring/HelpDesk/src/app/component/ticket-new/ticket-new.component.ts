@@ -15,15 +15,8 @@ import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
 })
 export class TicketNewComponent implements OnInit {
   
-  @ViewChild("form")
-  ticketnewForm:NgForm;
   ticket = new Ticket();
   shared: SharedService;
-  options = {
-    autoClose: false,
-    keepAfterRouteChange: false
-  };
-  
 
   constructor(private ticketService: TicketService, private router: ActivatedRoute,
     public alertService: AlertService,private route:Router) {

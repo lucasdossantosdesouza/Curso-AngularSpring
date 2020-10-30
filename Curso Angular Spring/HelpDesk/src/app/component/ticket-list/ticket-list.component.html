@@ -1,4 +1,4 @@
-<h3 class="mt-5">HelpDesk | Lista de Tickets</h3>
+<h2 class="mt-5">Lista de Tickets</h2>
 
       <div class="table-responsive" >
 
@@ -24,7 +24,7 @@
 
             <div class="form-group">
       
-            <label for="titulo">Titulo</label>
+            <label for="titulo">Título</label>
       
             <input type="text" [(ngModel)]="ticketFilter.titulo" class="form-control" name="titulo"
             id="titulo"  >   
@@ -36,12 +36,12 @@
       
               <select  [(ngModel)]="ticketFilter.status"  name="status"
               class="form-control select2" id="status" style="width: 100%;">
-                  <option >New</option>
-                  <option >Assigned</option>
-                  <option >Resolved</option>
-                  <option >Aproved</option>
-                  <option >Disaproved</option>
-                  <option >Closed</option>
+                  <option value="New">Novo</option>
+                  <option value="Assigned">Atribuído</option>
+                  <option value="Resolved">Resolvido</option>
+                  <option value="Aproved">Aprovado</option>
+                  <option value="Disaproved">Desaprovado</option>
+                  <option value="Closed">Fechado</option>
               </select>     
           </div>
         
@@ -50,15 +50,15 @@
         
                 <select  [(ngModel)]="ticketFilter.priority"  name="priority"
                 class="form-control select2" id="priority" style="width: 100%;">
-                    <option >High</option>
-                    <option >Normal</option>
-                    <option >Low</option>
+                    <option value="High">Alta</option>
+                    <option value="Normal">Normal</option>
+                    <option value="Low">Baixa</option>
                 </select>     
             </div>
             <div>
-              <button type="submit" (click)="filter()"  class="btn btn-primary">Pesquisar</button>    
+              <button type="submit" (click)="filter()"  class="btn btn-primary">Filtrar</button>    
               <span class="espaco"></span>
-            <button type="submit" class="btn btn-info pull-right" (click)="cleanFilter()" >Limpar Filtros</button>
+            <button type="submit" class="btn btn-info pull-right" (click)="cleanFilter()" >Limpar Filtro(s)</button>
           </div>
 
           </div>
@@ -66,7 +66,7 @@
           <thead>
             <tr>
               <th>Número</th>
-              <th>Titulo</th>
+              <th>Título</th>
               <th>Status</th>
               <th>Prioridade</th> 
               <th *ngIf="shared.usuario.profile == 'CUSTOMER' "></th>   
@@ -78,13 +78,24 @@
             <tr *ngFor="let item of tickets" >  
               <td>{{ item.number }}</td>           
               <td>{{ item.titulo }}</td>
-              <td>{{ item.status }}</td>
-              <td>{{ item.priority }}</td>
+              <td *ngIf="item.status == 'New' ">Novo</td>
+              <td *ngIf="item.status == 'Assigned' ">Atribuído</td>
+              <td *ngIf="item.status == 'Resolved' " >Resolvido</td>
+              <td *ngIf="item.status == 'Aproved' ">Aprovado</td>
+              <td *ngIf="item.status == 'Disaproved' ">Desaprovado</td>
+              <td *ngIf="item.status == 'Closed' ">Fechado</td>
+
+              <td *ngIf="item.priority == 'High' ">Alta</td>
+              <td *ngIf="item.priority == 'Normal' ">Normal</td>
+              <td *ngIf="item.priority == 'Low' " >Baixa</td>
+
               <td *ngIf="shared.usuario.profile == 'CUSTOMER' ">
                 <button (click)="edit(item.id)" class="btn btn-primary">editar</button> </td>
+
               <td *ngIf="shared.usuario.profile == 'CUSTOMER' ">
-                <button (click)="delete(item.id)" class="btn btn-primary">excluir</button></td>
-              <td><button (click)="detail(item.id)" class="btn btn-primary">detalhes</button></td>
+                <button (click)="delete(item.id)" class="btn btn-danger">excluir</button></td>
+
+              <td><button (click)="detail(item.id)" class="btn btn-success">detalhes</button></td>
             </tr>
           </tbody>
 

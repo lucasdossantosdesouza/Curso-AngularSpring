@@ -1,3 +1,4 @@
+import { ChangeStatus } from './change-status';
 import { Usuario } from './usuario';
 
 export class Ticket {
@@ -11,7 +12,7 @@ export class Ticket {
     public assigneredUser:Usuario;
     public data: string;
     public description: string;
-    public changeStatus: Array<string>;
+    public changeStatus: Array<ChangeStatus>;
 
    constructor(){
        
