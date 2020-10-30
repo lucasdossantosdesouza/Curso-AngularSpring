@@ -3,9 +3,8 @@
       <div class="table-responsive" >
 
         <alert id="alert-1"></alert>
-           
-        <div class="row">  
-        <div  class="col-sm" *ngIf="shared.usuario.profile == 'TECHNICIAN' "> 
+        
+        <div  class="jumbotron p-4" *ngIf="shared.usuario.profile == 'TECHNICIAN' "> 
 
             <div class="form-group" style="padding-left: 25px;">
 
@@ -63,9 +62,7 @@
             <button type="submit" class="btn btn-info pull-right" (click)="cleanFilter()" >Limpar Filtro(s)</button>
           </div>
 
-          </div>         
-    
-        <div  class="col-sm"> 
+          </div>
         <table class="table table-striped" >
           <thead>
             <tr>
@@ -95,9 +92,6 @@
             </tr>
           </tbody>
 
-    </table>          
+    </table>      
     <pagination [page]="page" (paginationEvent)=changePage($event)></pagination>
-    </div>
-    </div>
-
 </div>
