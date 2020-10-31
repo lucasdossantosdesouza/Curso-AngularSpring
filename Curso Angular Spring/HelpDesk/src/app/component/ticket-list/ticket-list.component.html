@@ -91,7 +91,7 @@
               <td>{{ item.titulo }}</td>
               <td > {{ getStatus(item) }}</td>             
               <td> {{ getPriority(item) }}</td>
-              <td> {{ ite.dataAgendamento }}</td>
+              <td> {{ ite.dataAgendamento | date:'dd/MM/yyyy HH:mm' }}</td>
 
               <td *ngIf="shared.usuario.profile == 'CUSTOMER' ">
                 <button (click)="edit(item.id)" class="btn btn-primary">editar</button> </td>
