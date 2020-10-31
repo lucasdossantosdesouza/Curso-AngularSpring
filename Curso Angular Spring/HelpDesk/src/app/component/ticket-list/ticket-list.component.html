@@ -56,6 +56,16 @@
                     <option value="Low">Baixa</option>
                 </select>     
             </div>
+            <div class="form-group">
+
+              <label for="dataAgendamento">Data Agendamento</label>
+        
+              <input class="form-control" type="datetime-local" id="dataAgendamento"
+              id="dataAgendamento"
+              [(ngModel)]="ticket.dataAgendamento" 
+              class="form-control" name="dataAgendamento">       
+        
+            </div>
             <div>
               <button type="submit" (click)="filter()"  class="btn btn-primary">Filtrar</button>    
               <span class="espaco"></span>
@@ -81,6 +91,7 @@
               <td>{{ item.titulo }}</td>
               <td > {{ getStatus(item) }}</td>             
               <td> {{ getPriority(item) }}</td>
+              <td> {{ ite.dataAgendamento }}</td>
 
               <td *ngIf="shared.usuario.profile == 'CUSTOMER' ">
                 <button (click)="edit(item.id)" class="btn btn-primary">editar</button> </td>
