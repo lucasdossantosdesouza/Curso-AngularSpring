@@ -13,6 +13,7 @@ export class Ticket {
     public data: string;
     public description: string;
     public changeStatus: Array<ChangeStatus>;
+    public dataAgendamento:Date;
 
    constructor(){
        
