@@ -1,7 +1,7 @@
+import { TaskDetailComponent } from './component/task-detail/task-detail.component';
+import { TaskListComponent } from './component/task-list/task-list.component';
+import { TaskNewComponent } from './component/task-new/task-new.component';
 import { SummaryComponent } from './component/summary/summary.component';
-import {  TaskDetailComponent } from './component/ticket-detail/task-detail.component';
-import {  TaskListComponent } from './component/ticket-list/task-list.component';
-import {  TaskNewComponent } from './component/ticket-new/task-new.component';
 import { UserListComponent } from './component/user-list/user-list.component';
 import { LoginComponent } from './component/security/login/login.component';
 import { HomeComponent } from './component/home/home.component';
