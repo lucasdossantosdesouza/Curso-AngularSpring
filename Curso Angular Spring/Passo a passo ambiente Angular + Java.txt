@@ -32,3 +32,5 @@ instalação bootstrap
 npm install bootstrap jquery popper.js
 
 https://www.fabricadecodigo.com/bootstrap-instalacao-angular/
+
+http://localhost:8080/swagger-ui/index.html?configUrl=/api-docs/swagger-config
