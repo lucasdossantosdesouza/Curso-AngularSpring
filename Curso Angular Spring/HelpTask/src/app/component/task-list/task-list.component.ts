@@ -35,7 +35,7 @@ export class TaskListComponent implements OnInit {
   }
 
   findAll(page: number, count: number){   
-    this.taskService.listtask(page, count).subscribe((responseApi: ResponseApi)=>{
+    this.taskService.listtasks(page, count).subscribe((responseApi: ResponseApi)=>{
       this.tasks = responseApi.data.content;     
       this.page = responseApi.data;
       this.paginas = [this.page.totalPages];

@@ -26,7 +26,7 @@ export class TaskService {
      return this.http.get(`${HELP_DESK_API}/api/task/`);
   }
 
-  listtask(page: number , count: number){
+  listtasks(page: number , count: number){
     return this.http.get(`${HELP_DESK_API}/api/task/${page}/${count}`);
   }
 
