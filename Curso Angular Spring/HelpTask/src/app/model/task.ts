@@ -1,3 +1,4 @@
+import { Comentario } from './comentario';
 import { ChangeStatus } from './change-status';
 import { Usuario } from './usuario';
 
@@ -13,6 +14,7 @@ export class Task {
     public data: string;
     public description: string;
     public changeStatus: Array<ChangeStatus>;
+    public comentarios: Array<Comentario>;
     public dataAgendamento:Date;
 
    constructor(){

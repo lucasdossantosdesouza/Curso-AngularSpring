@@ -1,4 +1,4 @@
-import { HELP_DESK_API } from './helpdesk.api';
+import { HELP_TASK_API } from './helptask.api';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Usuario } from '../model/usuario';
@@ -13,28 +13,28 @@ export class UsuarioService {
    }
 
    login(usuario: Usuario){
-      return this.http.post(`${HELP_DESK_API}/api/auth`,usuario);
+      return this.http.post(`${HELP_TASK_API}/api/auth`,usuario);
    }
 
    createOrUpdate(usuario: Usuario){
      if(usuario.id != null && usuario.id != ''){
-      return this.http.put(`${HELP_DESK_API}/api/usuario`,usuario);
+      return this.http.put(`${HELP_TASK_API}/api/usuario`,usuario);
      }else{
        usuario.id = null;
-      return this.http.post(`${HELP_DESK_API}/api/usuario`,usuario);
+      return this.http.post(`${HELP_TASK_API}/api/usuario`,usuario);
      }
    }
 
    findAll(page: number , count: number){
-      return this.http.get(`${HELP_DESK_API}/api/usuario/${page}/${count}`);
+      return this.http.get(`${HELP_TASK_API}/api/usuario/${page}/${count}`);
    }
 
    findById(id: string){
-    return this.http.get(`${HELP_DESK_API}/api/usuario/${id}`);
+    return this.http.get(`${HELP_TASK_API}/api/usuario/${id}`);
    }
 
    delete(id: string){
-    return this.http.delete(`${HELP_DESK_API}/api/usuario/${id}`);
+    return this.http.delete(`${HELP_TASK_API}/api/usuario/${id}`);
    }
 
 }
