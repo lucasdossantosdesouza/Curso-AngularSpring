@@ -24,6 +24,8 @@ import { UserListComponent } from './component/user-list/user-list.component';
 import { PaginationComponent } from './component/pagination/pagination.component';
 
 import { SummaryComponent } from './component/summary/summary.component';
+import { AbasTaskDetailComponent } from './component/abas-task-detail/abas-task-detail.component';
+import { ComentarioComponent } from './component/comentario/comentario.component';
 
 @NgModule({
   declarations: [
@@ -39,7 +41,7 @@ import { SummaryComponent } from './component/summary/summary.component';
     TaskNewComponent,
     TaskListComponent,
     TaskDetailComponent,    
-    SummaryComponent       
+    SummaryComponent, AbasTaskDetailComponent, ComentarioComponent       
   ],
   imports: [
     BrowserModule,

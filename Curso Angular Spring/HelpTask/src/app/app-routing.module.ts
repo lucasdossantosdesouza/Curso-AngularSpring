@@ -1,3 +1,5 @@
+import { ComentarioComponent } from './component/comentario/comentario.component';
+import { AbasTaskDetailComponent } from './component/abas-task-detail/abas-task-detail.component';
 import { TaskDetailComponent } from './component/task-detail/task-detail.component';
 import { TaskListComponent } from './component/task-list/task-list.component';
 import { TaskNewComponent } from './component/task-new/task-new.component';
@@ -20,6 +22,8 @@ const routes: Routes = [
 { path: 'novo-task/:id', component: TaskNewComponent,  canActivate:[AuthGuard] },
 { path: 'lista-task', component: TaskListComponent,  canActivate:[AuthGuard] },
 { path: 'detail-task/:id', component: TaskDetailComponent,  canActivate:[AuthGuard] },
+{ path: 'abas-task/:id', component: AbasTaskDetailComponent,  canActivate:[AuthGuard] },
+{ path: 'comentario-task/:id', component: ComentarioComponent,  canActivate:[AuthGuard] },
 { path: 'summary', component: SummaryComponent,  canActivate:[AuthGuard] }
 ];
 

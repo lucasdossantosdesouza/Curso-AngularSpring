@@ -52,7 +52,7 @@ export class UserListComponent implements OnInit {
     .then((candelete: boolean)=>{
       if(candelete){
         this.usuarioService.delete(id).subscribe((responseApi: ResponseApi)=>{
-          this.alertService.success('Excluido com sucesso',{ id: 'alert-1' });
+          this.alertService.success('Usuário Excluido com sucesso',{ id: 'alert-1' });
           this.findAll(this.pag,this.count)
         }, error=>{
           this.alertService.error(error['error']['errors'][0],{ id: 'alert-1' });     

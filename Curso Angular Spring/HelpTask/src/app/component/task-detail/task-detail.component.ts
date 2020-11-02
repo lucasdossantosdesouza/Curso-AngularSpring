@@ -20,7 +20,7 @@ export class TaskDetailComponent implements OnInit {
   constructor(private taskService: TaskService, private router: ActivatedRoute
     ,public alertService: AlertService,private route:Router) {
       this.shared = SharedService.getInstance();
-    }
+  }
 
   ngOnInit(): void {
     let id: string = this.router.snapshot.params['id'];

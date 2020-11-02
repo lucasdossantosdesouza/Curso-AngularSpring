@@ -76,7 +76,7 @@ export class TaskListComponent implements OnInit {
   }
 
   detail(id: string){
-    this.router.navigate(['/detail-task',id]);
+    this.router.navigate(['/abas-task',id]);
   }
 
   delete(id: string){
@@ -84,7 +84,7 @@ export class TaskListComponent implements OnInit {
     .then((candelete: boolean)=>{
       if(candelete){
         this.taskService.delete(id).subscribe((responseApi: ResponseApi)=>{
-          this.alertService.success('Excluido com sucesso',{ id: 'alert-1' });
+          this.alertService.success('Task Excluida com sucesso',{ id: 'alert-1' });
           this.findAll(this.pag,this.count)
         }, error=>{
           this.alertService.error(error['error']['errors'][0],{ id: 'alert-1' });     
